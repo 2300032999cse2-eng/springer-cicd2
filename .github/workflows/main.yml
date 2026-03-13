@@ -1,0 +1,24 @@
+name: Springer CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Show files
+        run: ls -la
+
+      - name: Run app
+        run: ./app.sh
+
+      - name: Print success message
+        run: echo "Pipeline ran successfully!"
